@@ -19,4 +19,33 @@ Suricata monitored network traffic on the Linux interface and logged events to s
 ## Attack Simulation
 - **Tool:** Nmap  
 - **Technique:** SYN stealth scan  
-- **Command:**  
+- **Command:**  nmap -sS -p- <target-ip>
+
+The objective was to generate reconnaissance traffic for IDS inspection and analysis.
+
+---
+
+## Detection Results
+- Suricata successfully inspected TCP SYN traffic
+- Flow and packet metadata were logged to `eve.json`
+- Activity was classified as informational due to threshold-based detection logic and NAT lab constraints
+- No exploitation attempts or follow-on activity were observed
+
+This reflects realistic SOC behavior where not all reconnaissance escalates to high-severity alerts.
+
+---
+
+## MITRE ATT&CK Mapping
+- Tactic: Discovery
+- Technique: Network Service Scanning
+- Technique ID: T1046
+
+---
+
+## Skills Demonstrated
+- IDS deployment and configuration
+- Rule management and validation
+- Network traffic inspection
+- Structured log analysis (`eve.json`)
+- SOC-style incident documentation
+- MITRE ATT&CK mapping
